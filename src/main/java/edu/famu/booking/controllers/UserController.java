@@ -1,10 +1,12 @@
 package edu.famu.booking.controllers;
 import edu.famu.booking.models.parse.User;
+import edu.famu.booking.models.serializable.SerializableRoom;
 import edu.famu.booking.models.serializable.SerializableUser;
 import edu.famu.booking.services.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController //identified this class a controller used for REST API class.
@@ -38,4 +40,20 @@ public class UserController {
         return userService.getUserById(id).getSerializable();
     }
 
+    @PostMapping("/")
+    public String createUser(@RequestBody SerializableUser user){
+        return userService.addUser(user);
+    }
+
+    @PutMapping("/{id}")
+    public String updateRoom(@PathVariable String id, @RequestBody Map<String, Object> user)
+    {
+        return userService.updateUser(id, user);
+    }
+
+    @DeleteMapping("/{id}")
+    public String destroyUser(@PathVariable String id)
+    {
+        return userService.removeUser(id);
+    }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 @ParseClassName("Hotel")
 public class Hotel extends ParseObject{
 
-    final static String ID = "id";
+    final static String HOTELID = "hotelId";
     final static String NAME = "name";
 
     final static String TYPE = "type";
@@ -33,11 +33,11 @@ public class Hotel extends ParseObject{
 
     final static String FEATURED = "featured";
 
-    public String getID() {
-        return getString(ID);
+    public String getHotelId() {
+        return getString(HOTELID);
     }
-    public void setID(String id) {
-        put(ID, id);
+    public void setHotelId(String id) {
+        put(HOTELID, id);
     }
 
     public String getName() {
@@ -122,7 +122,7 @@ public class Hotel extends ParseObject{
         put(ROOMS, createJSONArray(rooms));
     }
 
-    private JSONArray createJSONArray(ArrayList<?> arr )
+    private JSONArray createJSONArray(ArrayList<?> arr)
     {
         JSONArray list = new JSONArray();
         for(Object s : arr)
@@ -133,7 +133,7 @@ public class Hotel extends ParseObject{
 
     public SerializableHotel getSerializable() {
         return new SerializableHotel(
-                getID(), getName(), getType(), getCity(),
+                getHotelId(), getName(), getType(), getCity(),
                 getAddress(), getDistance(), getPhotos(), getTitle(),
                 getRating(), getRooms(), getCheapestPrice(), getFeatured()
         );

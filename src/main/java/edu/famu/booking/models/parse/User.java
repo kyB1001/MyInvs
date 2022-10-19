@@ -59,7 +59,7 @@ public class User extends ParseObject {
     public String getImg() {
         return getString(IMG);
     }
-    public void setIMG(String img) {
+    public void setImg(String img) {
         put(IMG, img);
     }
 

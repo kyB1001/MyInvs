@@ -45,7 +45,7 @@ public class Room extends ParseObject {
     public int getMaxPeople() {
         return getInt(MAXPEOPLE);
     }
-    public void setMaxPeople(String maxPeople) {
+    public void setMaxPeople(int maxPeople) {
         put(MAXPEOPLE, maxPeople);
     }
 

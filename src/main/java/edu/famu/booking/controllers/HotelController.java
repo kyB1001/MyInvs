@@ -6,6 +6,7 @@ import edu.famu.booking.services.HotelService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController //identified this class a controller used for REST API class.
@@ -36,5 +37,21 @@ public class HotelController {
     @GetMapping("/find/{id}")
     public SerializableHotel getProductById(@PathVariable String id){
         return hotelService.getHotelById(id).getSerializable();
+    }
+    @PostMapping("/")
+    public String createHotel(@RequestBody SerializableHotel hotel){
+        return hotelService.addHotel(hotel);
+    }
+
+    @PutMapping("/{id}")
+    public String updateProduct(@PathVariable String id, @RequestBody Map<String, Object> hotel)
+    {
+        return hotelService.updateHotel(id, hotel);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteHotel(@PathVariable String id)
+    {
+        return hotelService.removeHotel(id);
     }
 }
