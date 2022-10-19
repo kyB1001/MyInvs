@@ -6,11 +6,12 @@ import org.parse4j.ParseClassName;
 import org.json.JSONArray;
 import org.parse4j.ParseObject;
 import org.parse4j.ParseClassName;
+import org.parse4j.ParseUser;
 
 import java.util.ArrayList;
 
 @ParseClassName("User")
-public class User extends ParseObject {
+public class User extends ParseUser {
 
     final static String ID = "id";
 

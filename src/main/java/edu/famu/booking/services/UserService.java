@@ -64,13 +64,14 @@ public class UserService {
 
     public String addUser(SerializableUser user)
     {
-        String message; //message we will return to the user
+        String message = ""; //message we will return to the user
 
         //REMAINING CODE GOES HERE
         User parseUser = new User(); //Parse Product Object
 
-//set the value of each of the fields
+        //set the value of each of the fields
         parseUser.setUsername(user.getUsername());
+        parseUser.setPassword("test");
         parseUser.setEmail(user.getEmail());
         parseUser.setCountry(user.getCountry());
         parseUser.setImg(user.getImg());
@@ -79,13 +80,11 @@ public class UserService {
         parseUser.setIsAdmin(user.getIsAdmin());
 
         try {
-            parseUser.save(); //runs the query to insert the new value
-            message = "User Created"; //set success the return message
-
+            parseUser.signUp();
+            message="User Created";
         } catch (ParseException e) {
-            e.printStackTrace(); //print the error to the console.
-            // set the error return message
             message = "Error creating user. " + e.getMessage();
+            e.printStackTrace();
         }
         return message;
     }
@@ -101,9 +100,9 @@ public class UserService {
             User use = query.get(id); // retrieves the room by it's objectid
             user.forEach((k,v) -> {
                 if(Objects.equals(k, "username"))
-                    use.put(k,(String)v);
+                    use.setUsername((String) v);
                 else if (Objects.equals(k, "email"))
-                    use.put(k, (String) v);
+                    use.setPassword((String) v);
                 else if (Objects.equals(k, "country"))
                     use.put(k, (String) v);
                 else if (Objects.equals(k, "img"))
