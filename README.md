@@ -1,49 +1,46 @@
-<<<<<<< HEAD
+# GIF
+![Animation](https://user-images.githubusercontent.com/56606742/196613175-5c6306eb-e3cf-4095-96ef-e77e2ce004db.gif)
+
+# Endpoints
+All URIs start with: `http://localhost:8080/api/v1`
+
+|Network|Method|Description|
+|---|---|---| 
+|`/hotel`|GET|Retrieves all hotels|
+|`/hotel`|POST|Create a hotel|
+|`/hotel/{id}`|PUT|Update a hotel|
+|`/hotel/{id}`|DELETE|Delete a hotel|
+|`/hotel/?sort=asc`|GET|Retrieves all hotels in ascending order by cheapestPrice| 
+|`/hotel/?sort=dsc`|GET|Retrieves all hotels in descending order by cheapestPrice| 
+|`/hotel/find/{id}`|GET|Retrieves a specific hotel based on it's ID|
+|`/room`|GET|Retrieves all rooms| 
+|`/room`|POST|Create a room|
+|`/room/{id}`|PUT|Update a room|
+|`/room/{id}`|DELETE|Delete a room|
+|`/room/?sort=asc`|GET|Retrieves all rooms in ascending order by price| 
+|`/room/?sort=dsc`|GET|Retrieves all rooms in descending order by price| 
+|`/room/find/{id}`|GET| Retrieves a specific rooms based on it's ID|
+|`/user/`|GET|Retrieves all user|
+|`/user`|POST|Create a user|
+|`/user/{id}`|PUT|Update a user|
+|`/user/{id}`|DELETE|Delete a user|
+|`/user/?sort=asc`|GET|Retrieves all users in ascending order by username| 
+|`/user/?sort=dsc`|GET|Retrieves all users in descending order by username| 
+|`/user/find/{id}`|GET| Retrieves a specific user based on it's ID|
+
+
 # CA04 - Booking API Part 2
 
 **Overview**: This project builds off last the assignment where you designed the GET endpoints of the Booking API. You will continue developing the API by creating endpoints to create, update, and delete Hotels, Rooms, and Users.
-=======
-All URIs start with: `http://localhost:8080/api/v1`
-
-|Network|Description| 
-|---|---| 
-|`/hotel`|Retrieves all hotels| 
-|`/hotel/?sort=asc`|Retrieves all hotels in ascending order by cheapestPrice| 
-|`/hotel/?sort=dsc`|Retrieves all hotels in descending order by cheapestPrice| 
-|`/hotel/{id}`| Retrieves a specific hotel based on it's ID|
-|`/room`|Retrieves all rooms| 
-|`/room/?sort=asc`|Retrieves all rooms in ascending order by price| 
-|`/room/?sort=dsc`|Retrieves all rooms in descending order by price| 
-|`/room/{id}`| Retrieves a specific rooms based on it's ID|
-|`user/`|Retrieves all user| 
-|`/user/?sort=asc`|Retrieves all users in ascending order by username| 
-|`/user/?sort=dsc`|Retrieves all users in descending order by username| 
-|`/user/{id}`| Retrieves a specific user based on it's ID|
-
-
-# CA02 - Booking API Part 1
-
-**Overview**: This project builds off last the assignment where you designed the Booking classes. You will create Parse
-database to hold some fake data. You will be creating a backend API to communicate with your Parse Database.
-
->>>>>>> ca02---booking-api-part-1-KennethRi/booking-api-2
 
 **Submission Instructions**:
 Once you've completed the required user stories for your project, take the following steps to get your project ready to
 submit.
 
 1. Push Code to Github Repository
-<<<<<<< HEAD
     - If this week's assignment is starting a new project, you will use the empty project provided. However, if the week's assignment is a continuation of the last week's project, you will NOT create a new project. Copy the project files into the new repository folder andvmake an initial commit.
 
 2. Add to the a README Template
-=======
-    - If this week's assignment is starting a new project. However, if the week's assignment is a continuation of the
-      last week's project, you will NOT create a new project. Copy the project files into the new repository folder and
-      make an initial commit.
-
-2. Create a README Template
->>>>>>> ca02---booking-api-part-1-KennethRi/booking-api-2
     - Every submission must be accompanied by a README.md using the readme template provided with the assignment to
       demonstrate which required and optional tasks you've completed.
     - In your project repository, add a README.md file in the root directory that contains the contents of the README
@@ -67,7 +64,6 @@ submit.
     - To check this, you can browse your repository on GitHub on your favorite browser to make sure some of your latest
       changes are present there.
 
-<<<<<<< HEAD
  
  ### Required Stories
 
@@ -75,18 +71,18 @@ submit.
     - Create the required models, controllers, and services
     - Each controller should have 3 methods:
         - Create a new entry
-		- Update an existing entry
-		- Delete an existing entry
+            - Update an existing entry
+            - Delete an existing entry
 - Document endpoints. ***(1 point)***
     - Add to the README file the URI for each endpoint and a description (see example below)
-	- This should include **ALL** endpoints, including those from last week. *Note that there is an extra column*
+      - This should include **ALL** endpoints, including those from last week. *Note that there is an extra column*
 
 #### Example
 All URIs start with: `http://localhost:8080/api/v1`
 
-|Action|Network|Description| 
-|---|---| 
-|`GET`|`/product`| Retrieves all products| 
+|Action|Network|Description|
+|---|---|
+|`GET`|`/product`| Retrieves all products|
 |`GET`|`/product/{id}`| Retrieves a specific product based on it's ID|
 |`POST`|`/product`| Creates a new product|
 |`PUT`|`/product/{id}`| Updates a product based on it's ID|
@@ -98,25 +94,3 @@ All URIs start with: `http://localhost:8080/api/v1`
 - Create an endpoint that allows the user to find a cart by User ID. ***(2 points)***
 - Create an endpoint that allows the user to delete a cart based on the User ID. ***(2 points)***
     - Add this end point to the table if you create it.
-
-=======
-### Required Stories
-
-- Create a Parse database your application. . ***(3 points)***
-    - The names of class fields should match the names presented in the last coding assignment (this includes casing)-
-    - For user, do not delete the existing User table that Parse creates, simply add the additional fields
-    - Include sample data
-- Create an endpoint for each of the major classes (Hotel, Room, User) ***(6 points)***
-    - Create the required models, controllers, and services
-    - Each controller should have at least 2 methods
-        - Get all
-        - Get by id
-- Document endpoints. ***(1 point)***
-    - Add to the README file the URI for each endpoint and a description (see example below)
-
-### Stretch Stories
-
-- Create an endpoint that allows the used to sort descending or ascending. ***(5 points)***
-    - Add this by using a query string (ie, `http://localhost:8080/api/v1/product/?sort=asc`)
->>>>>>> ca02---booking-api-part-1-KennethRi/booking-api-2
-
