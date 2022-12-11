@@ -1,6 +1,9 @@
 package edu.famu.booking.services;
-import edu.famu.booking.models.parse.Property;
+
+
+import edu.famu.booking.models.parse.Tenant;
 import edu.famu.booking.models.serializable.SerializableProperty;
+import edu.famu.booking.models.serializable.SerializableTenant;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.parse4j.Parse;
@@ -11,20 +14,20 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class PropertyService {
+public class TenantService {
     protected final Log logger = LogFactory.getLog(this.getClass()); //used to write to the console
 
-    public ArrayList<Property> retrieveProperties(String sort)
+    public ArrayList<Tenant> retrieveTenants(String sort)
     {
         logger.info(Parse.isIsRootMode());
-        final ArrayList<Property> properties = new ArrayList<>();
+        final ArrayList<Tenant> properties = new ArrayList<>();
 
-        ParseQuery<Property> query = ParseQuery.getQuery(Property.class);
+        ParseQuery<Tenant> query = ParseQuery.getQuery(Tenant.class);
 
 
         try {
-            List<Property> list = query.find();
-            for (Property p : list) {
+            List<Tenant> list = query.find();
+            for (Tenant p : list) {
                 //logger.info(p.toString()); //use if you want to see your products in the console
                 properties.add(p);
             }
@@ -39,44 +42,40 @@ public class PropertyService {
 
 
 
-    public Property getPropertyById(String id)
+    public Tenant getTenantById(String id)
     {
-        Property property = null;
+        Tenant tenant = null;
 
         //defines the query for the product class
-        ParseQuery<Property> query = ParseQuery.getQuery(Property.class);
+        ParseQuery<Tenant> query = ParseQuery.getQuery(Tenant.class);
 
         try{
-            property = query.get(id); //gets a single record based on objectId
+            tenant = query.get(id); //gets a single record based on objectId
         }catch (ParseException e)
         {
             e.printStackTrace();
         }
 
-        return property;
+        return tenant;
     }
 
-    public String addProperty(SerializableProperty property)
+    public String addTenant(SerializableTenant tenant)
     {
         String message; //message we will return to the user
 
         //REMAINING CODE GOES HERE
-        Property parseProperty = new Property(); //Parse Product Object
+        Tenant parseTenant = new Tenant(); //Parse Product Object
 
-//set the value of each of the fields
-        parseProperty.setAddress(property.getAddress());
-        parseProperty.setType(property.getType());
-        parseProperty.setPrice(property.getPrice());
-        parseProperty.setBedrooms(property.getBedrooms());
-        parseProperty.setBathrooms(property.getBathrooms());
-        parseProperty.setSquareFeet(property.getSquareFeet());
-        parseProperty.setAge(property.getAge());
-        parseProperty.setDescription(property.getDescription());
-
+        //set the value of each of the fields
+        parseTenant.setLastname(tenant.getLastname());
+        parseTenant.setFirstname(tenant.getFirstname());
+        parseTenant.setPhone(tenant.getPhone());
+        parseTenant.setEmail(tenant.getEmail());
+        parseTenant.setProperty(tenant.getProperty());
 
 
         try {
-            parseProperty.save(); //runs the query to insert the new value
+            parseTenant.save(); //runs the query to insert the new value
             message = "Property Created"; //set success the return message
 
         } catch (ParseException e) {
@@ -88,17 +87,16 @@ public class PropertyService {
     }
 
 
-
-    public String removeProperty(String id)
+    public String removeTenant(String id)
     {
         String message;
 
-        ParseQuery<Property> query = ParseQuery.getQuery(Property.class);
+        ParseQuery<Tenant> query = ParseQuery.getQuery(Tenant.class);
 
         try
         {
-            Property property = query.get(id); //get product by id
-            property.delete(); //delete product
+            Tenant tenant = query.get(id); //get product by id
+            tenant.delete(); //delete product
             message = "Property " + id + " deleted."; //success message
         } catch (ParseException e) {
             e.printStackTrace();

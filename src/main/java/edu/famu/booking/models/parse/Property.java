@@ -55,7 +55,7 @@ public class Property extends ParseObject{
         return getInt(BATHROOMS);
     }
     public void setBathrooms(int bathrooms) {
-        put(BEDROOMS, bathrooms;
+        put(BEDROOMS, bathrooms);
     }
 
     public int getSquareFeet() {
