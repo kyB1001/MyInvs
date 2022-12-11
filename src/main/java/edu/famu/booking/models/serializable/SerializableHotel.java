@@ -1,5 +1,4 @@
 package edu.famu.booking.models.serializable;
-import edu.famu.booking.models.parse.Room;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
