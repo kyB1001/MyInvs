@@ -9,6 +9,7 @@ import {
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Property from "./pages/Property";
+import Tenant from "./pages/Tenant";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/property" element={<Property />}/>
+            <Route path="/tenant" element={<Tenant />}/>
         </Routes>
       </Router>
   );

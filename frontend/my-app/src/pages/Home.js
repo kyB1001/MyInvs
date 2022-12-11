@@ -36,7 +36,7 @@ function Home() {
                 <div className="row">
                         <div className="col text-md-center mx-3 py-5">
                             <h5>Portfolio Location</h5>
-                            <h1>yada yada yada</h1>
+                            <h1>Florida</h1>
                         </div>
                 </div>
             </div>
